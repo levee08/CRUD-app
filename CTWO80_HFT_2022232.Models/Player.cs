@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +10,13 @@ namespace CTWO80_HFT_2022232.Models
 {
     public class Player
     {
-
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PlayerId { get; set; }
+
+        [StringLength(100)]
         public string PlayerName { get; set; }
+        [StringLength(100)]
         public string PlayerPosition { get; set; }
         public int FootballTeamId { get; set; }
         public virtual FootballTeam FootballTeam { get; set; }

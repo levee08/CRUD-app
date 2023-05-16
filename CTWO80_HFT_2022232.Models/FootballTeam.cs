@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -9,12 +11,15 @@ namespace CTWO80_HFT_2022232.Models
 {
     public class FootballTeam
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int FootballTeamId { get; set; }
-
+        [StringLength(100)]
         public string FootballTeamName { get; set; }
 
         public int TrophiesWon { get; set; }
 
+        [Range(1,30)]
         public int CurrentPlacement { get; set; }
 
         public int ManagerId { get; set; }
