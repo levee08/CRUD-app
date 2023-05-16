@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.17" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.17" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.17" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CTWO80_HFT_2022232.Models\CTWO80_HFT_2022232.Models.csproj" />
   </ItemGroup>
 
