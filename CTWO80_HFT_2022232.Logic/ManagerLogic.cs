@@ -53,7 +53,7 @@ namespace CTWO80_HFT_2022232.Logic
 
         public IEnumerable<T> ManagerWithTheMostThropie()
         {
-           
+           repo.
         }
     }
 }
