@@ -29,14 +29,37 @@ namespace CTWO80_HFT_2022232.Test
                 new FootballTeam("5#TeamE#10#10#5"),
             }.AsQueryable());
             logic = new FootballTeamLogic(mockFocirepo.Object);
+        }
 
+        [Test]
+        public void CreateTesterValidValue()
+        {
+            var team = new FootballTeam() { FootballTeamName = "barcelona" };
 
+            logic.Create(team);
 
-            // this.FootballTeamId = int.Parse(split[0]);
-            //this.FootballTeamName = split[1];
-            //this.TrophiesWon = int.Parse(split[2]);
-            //this.CurrentPlacement = int.Parse(split[3]);
-            //this.ManagerId = int.Parse(split[4]);
+            mockFocirepo.Verify(r=>r.Create(team),Times.Once);
+
+        }
+
+        [Test]
+        public void CreateTesterInValidValue()
+        {
+            var team = new FootballTeam() { FootballTeamName = "AC" };
+
+            try
+            {
+                logic.Create(team);
+            }
+            catch 
+            {
+
+                
+            }
+           
+
+            mockFocirepo.Verify(r => r.Create(team), Times.Never);
+
         }
     }
 }
