@@ -1,5 +1,6 @@
 ﻿using CTWO80_HFT_2022232.Models;
 using CTWO80_HFT_2022232.Repository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +49,11 @@ namespace CTWO80_HFT_2022232.Logic
         public void Update(Manager item)
         {
             this.repo.Update(item);
+        }
+
+        public IEnumerable<T> ManagerWithTheMostThropie()
+        {
+           
         }
     }
 }

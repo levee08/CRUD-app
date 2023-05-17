@@ -33,9 +33,7 @@ namespace CTWO80_HFT_2022232.Logic
 
         public Player Read(int id)
         {
-            
-            
-
+           
             
             return this.repo.Read(id);
         }
@@ -49,5 +47,25 @@ namespace CTWO80_HFT_2022232.Logic
         {
             this.repo.Update(item);
         }
+
+
+        public IEnumerable<PlayerStat> GetPlayerStatics(string name)
+        {
+            return from x in repo.ReadAll()
+                   where x.PlayerName == name
+                   select new PlayerStat
+                   {
+                       Playername = x.PlayerName,
+                       ManagerName = x.FootballTeam.Manager,
+                       ThropyCount = x.FootballTeam.TrophiesWon
+                   };
+        }
+    }
+
+    public class PlayerStat
+    {
+        public string Playername { get; set; }
+        public Manager ManagerName { get; set; }
+        public int ThropyCount { get; set; }
     }
 }
