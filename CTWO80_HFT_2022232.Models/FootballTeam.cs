@@ -25,7 +25,7 @@ namespace CTWO80_HFT_2022232.Models
         public int ManagerId { get; set; }
 
         public virtual Manager Manager { get; set; }
-
+        [NotMapped]
         public virtual ICollection<Player> Players { get; set; }
         public FootballTeam()
         {

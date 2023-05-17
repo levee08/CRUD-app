@@ -81,17 +81,17 @@ namespace CTWO80_HFT_2022232.Repository
             {
 
                 new Player("1#Messi#striker#1"),
-                new Player("2#Iniesta#midfilder#1"),
+                new Player("2#Iniesta#midfielder#1"),
                 new Player("3#Ronaldo#striker#2"),
                 new Player("4#Ramos#defender#2"),
                 new Player("5#Leao#striker#3"),
                 new Player("6#Maignan#goalkeeper#3"),
-                new Player("7#Modric#midfilder#4"),
-                new Player("8#Kroos#midfilder#4"),
+                new Player("7#Modric#midfielder#4"),
+                new Player("8#Kroos#midfielder#4"),
                 new Player("9#Xavi#defender#5"),
                 new Player("10#Kaka#striker#5"),
                 new Player("11#Haaland#striker#6"),
-                new Player("12#Szoboszlai#midfilder#6"),
+                new Player("12#Szoboszlai#midfielder#6"),
                 new Player("13#Valdes#goalkeeper#7"),
                 new Player("14#Cassilas#goalkeeper#7"),
 

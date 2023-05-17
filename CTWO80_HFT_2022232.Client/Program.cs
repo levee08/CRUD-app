@@ -10,7 +10,7 @@ namespace CTWO80_HFT_2022232.Client
     {
         static void Main(string[] args)
         {
-            Console.WriteLine();
+          
             LeaugeDbContext ctx =new LeaugeDbContext();
 
             ctx.Managers.Select(t => t.FootballTeams);

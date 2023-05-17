@@ -17,7 +17,7 @@ namespace CTWO80_HFT_2022232.Models
         public int ManagerAge { get; set; }
         public bool IsBold { get; set; }
 
-        
+        [NotMapped]
         public virtual ICollection<FootballTeam> FootballTeams { get; set; }
 
         public Manager()
