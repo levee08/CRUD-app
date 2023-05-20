@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace CTWO80_HFT_2022232.Models
 {
@@ -19,6 +20,7 @@ namespace CTWO80_HFT_2022232.Models
         [StringLength(100)]
         public string PlayerPosition { get; set; }
         public int FootballTeamId { get; set; }
+        [JsonIgnore]
         public virtual FootballTeam FootballTeam { get; set; }
         public Player()
         {
