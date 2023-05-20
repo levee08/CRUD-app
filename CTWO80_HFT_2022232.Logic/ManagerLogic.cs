@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CTWO80_HFT_2022232.Logic
 {
-    internal class ManagerLogic 
+    internal class ManagerLogic : IManagerLogic
     {
         IRepository<Manager> repo;
 
@@ -20,11 +20,11 @@ namespace CTWO80_HFT_2022232.Logic
 
         public void Create(Manager item)
         {
-            if (item.ManagerAge>80)
+            if (item.ManagerAge > 80)
             {
                 throw new ArgumentException("The Manager is too old!");
             }
-            if (item.ManagerName.Length<3)
+            if (item.ManagerName.Length < 3)
             {
                 throw new ArgumentException("Too short name for a manager!");
             }
@@ -51,6 +51,6 @@ namespace CTWO80_HFT_2022232.Logic
             this.repo.Update(item);
         }
 
-      
+
     }
 }

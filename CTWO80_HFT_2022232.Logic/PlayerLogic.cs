@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CTWO80_HFT_2022232.Logic
 {
-    internal class PlayerLogic 
+    internal class PlayerLogic : IPlayerLogic
     {
         IRepository<Player> repo;
 
@@ -19,7 +19,7 @@ namespace CTWO80_HFT_2022232.Logic
 
         public void Create(Player item)
         {
-            if (item.PlayerPosition!="striker"|| item.PlayerPosition != "defender"|| item.PlayerPosition != "goalkeeper"|| item.PlayerPosition != "midfielder")
+            if (item.PlayerPosition != "striker" || item.PlayerPosition != "defender" || item.PlayerPosition != "goalkeeper" || item.PlayerPosition != "midfielder")
             {
                 throw new ArgumentException("The position does not exists.");
             }
@@ -33,8 +33,8 @@ namespace CTWO80_HFT_2022232.Logic
 
         public Player Read(int id)
         {
-           
-            
+
+
             return this.repo.Read(id);
         }
 
@@ -56,7 +56,7 @@ namespace CTWO80_HFT_2022232.Logic
         }
 
         //poziciónként a legtöbb nyert trófea
-        public IEnumerable<KeyValuePair<string,int>> ThrophiesByPosition()
+        public IEnumerable<KeyValuePair<string, int>> ThrophiesByPosition()
         {
             return from x in this.repo.ReadAll()
                    group x by x.PlayerPosition into g
@@ -64,5 +64,5 @@ namespace CTWO80_HFT_2022232.Logic
         }
     }
 
-   
+
 }

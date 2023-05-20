@@ -8,11 +8,11 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace CTWO80_HFT_2022232.Logic
 {
-    public class FootballTeamLogic 
+    public class FootballTeamLogic : IFootballTeamLogic
     {
         IRepository<FootballTeam> repo;
 
-       
+
 
         public FootballTeamLogic(IRepository<FootballTeam> repo)
         {
@@ -61,11 +61,11 @@ namespace CTWO80_HFT_2022232.Logic
 
 
         //csapatok neve ahol kopasz a manager
-       
+
         public IEnumerable<FootballTeam> BoldManagersTeamName()
         {
             return this.repo.ReadAll().Where(x => x.Manager.IsBold == true);
-                   
+
         }
 
         //egy csapatban hány játékos van
@@ -76,14 +76,14 @@ namespace CTWO80_HFT_2022232.Logic
         }
 
         //40 évnél idősebb managerek csapatainak neve és a manager életkora
-        public IEnumerable<KeyValuePair<string,int>> OldManagersTeamName()
+        public IEnumerable<KeyValuePair<string, int>> OldManagersTeamName()
         {
             return from x in this.repo.ReadAll()
                    where x.Manager.ManagerAge > 40
                    select new KeyValuePair<string, int>(x.FootballTeamName, x.Manager.ManagerAge);
         }
 
-       
+
 
 
 
@@ -94,7 +94,7 @@ namespace CTWO80_HFT_2022232.Logic
 
     }
 
-   
 
-   
+
+
 }
