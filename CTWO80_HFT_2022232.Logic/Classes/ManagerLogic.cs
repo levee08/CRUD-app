@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CTWO80_HFT_2022232.Logic
 {
-    internal class ManagerLogic : IManagerLogic
+    public class ManagerLogic : IManagerLogic
     {
         IRepository<Manager> repo;
 

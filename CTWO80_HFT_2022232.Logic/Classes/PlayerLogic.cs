@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CTWO80_HFT_2022232.Logic
 {
-    internal class PlayerLogic : IPlayerLogic
+    public class PlayerLogic : IPlayerLogic
     {
         IRepository<Player> repo;
 
@@ -19,11 +19,17 @@ namespace CTWO80_HFT_2022232.Logic
 
         public void Create(Player item)
         {
-            if (item.PlayerPosition != "striker" || item.PlayerPosition != "defender" || item.PlayerPosition != "goalkeeper" || item.PlayerPosition != "midfielder")
+            if (item.PlayerPosition == "striker" || item.PlayerPosition == "defender" || item.PlayerPosition == "goalkeeper" || item.PlayerPosition == "midfielder")
+            {
+                
+                this.repo.Create(item);
+            }
+            else
             {
                 throw new ArgumentException("The position does not exists.");
             }
-            this.repo.Create(item);
+            
+
         }
 
         public void Delete(int id)

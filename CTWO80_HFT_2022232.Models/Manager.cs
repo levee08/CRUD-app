@@ -22,7 +22,7 @@ namespace CTWO80_HFT_2022232.Models
 
         public Manager()
         {
-            FootballTeams = new HashSet<FootballTeam>();
+           
         }
         public Manager(string line)
         {
@@ -31,7 +31,7 @@ namespace CTWO80_HFT_2022232.Models
             this.ManagerName = split[1];
             this.ManagerAge = int.Parse(split[2]);
             this.IsBold = bool.Parse(split[3]);
-            FootballTeams = new HashSet<FootballTeam>();
+            
 
         }
     }

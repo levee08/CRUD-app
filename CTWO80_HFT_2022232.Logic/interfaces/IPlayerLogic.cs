@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CTWO80_HFT_2022232.Logic
 {
-    internal interface IPlayerLogic
+    public interface IPlayerLogic
     {
         void Create(Player item);
         void Delete(int id);

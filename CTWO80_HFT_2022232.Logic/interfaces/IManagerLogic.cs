@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace CTWO80_HFT_2022232.Logic
 {
-    internal interface IManagerLogic
+    public interface IManagerLogic
     {
         void Create(Manager item);
         void Delete(int id);

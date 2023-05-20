@@ -60,7 +60,7 @@ namespace CTWO80_HFT_2022232.Logic
         }
 
 
-        //csapatok neve ahol kopasz a manager
+        //csapatok ahol kopasz a manager
 
         public IEnumerable<FootballTeam> BoldManagersTeamName()
         {
