@@ -3,12 +3,14 @@ using CTWO80_HFT_2022232.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
 namespace CTWO80_HFT_2022232.Endpoint.Controllers
 {
 
     [Route("[controller]")]
     [ApiController]
-    public class ManagerController:ControllerBase
+    public class ManagerController : ControllerBase
     {
 
         IManagerLogic logic;
