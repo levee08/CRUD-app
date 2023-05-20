@@ -7,7 +7,7 @@ namespace CTWO80_HFT_2022232.Endpoint.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class FootballTeamController
+    public class FootballTeamController : ControllerBase
     {
 
         IFootballTeamLogic logic;
