@@ -8,7 +8,7 @@ namespace CTWO80_HFT_2022232.Logic
     {
         void Create(Player item);
         void Delete(int id);
-        IEnumerable<KeyValuePair<string, int>> PlayerTeamAndPosition(string name);
+        IEnumerable<KeyValuePair<string, int>> PlayerTrophiesAndPosition(string name);
         Player Read(int id);
         IQueryable<Player> ReadAll();
         IEnumerable<KeyValuePair<string, int>> ThrophiesByPosition();
