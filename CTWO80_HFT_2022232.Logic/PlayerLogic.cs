@@ -47,25 +47,22 @@ namespace CTWO80_HFT_2022232.Logic
         {
             this.repo.Update(item);
         }
-
-
-        public IEnumerable<PlayerStat> GetPlayerStatics(string name)
+        //egy player name alapján hány trófeát nyert és milyen poszton játszik
+        public IEnumerable<KeyValuePair<string, int>> PlayerTeamAndPosition(string name)
         {
-            return from x in repo.ReadAll()
+            return from x in this.repo.ReadAll()
                    where x.PlayerName == name
-                   select new PlayerStat
-                   {
-                       Playername = x.PlayerName,
-                       ManagerName = x.FootballTeam.Manager,
-                       ThropyCount = x.FootballTeam.TrophiesWon
-                   };
+                   select new KeyValuePair<string, int>(x.PlayerPosition, x.FootballTeam.TrophiesWon);
+        }
+
+        //poziciónként a legtöbb nyert trófea
+        public IEnumerable<KeyValuePair<string,int>> ThrophiesByPosition()
+        {
+            return from x in this.repo.ReadAll()
+                   group x by x.PlayerPosition into g
+                   select new KeyValuePair<string, int>(g.Key, g.Sum(t => t.FootballTeam.TrophiesWon));
         }
     }
 
-    public class PlayerStat
-    {
-        public string Playername { get; set; }
-        public Manager ManagerName { get; set; }
-        public int ThropyCount { get; set; }
-    }
+   
 }

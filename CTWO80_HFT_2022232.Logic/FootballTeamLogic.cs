@@ -4,10 +4,11 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace CTWO80_HFT_2022232.Logic
 {
-    public class FootballTeamLogic : IFootballTeamLogic
+    public class FootballTeamLogic 
     {
         IRepository<FootballTeam> repo;
 
@@ -59,27 +60,41 @@ namespace CTWO80_HFT_2022232.Logic
         }
 
 
-
-        public IEnumerable<TeamPlayers> TeamsWithPlayerCounts()
+        //csapatok neve ahol kopasz a manager
+       
+        public IEnumerable<FootballTeam> BoldManagersTeamName()
         {
-            return from x in repo.ReadAll()
-                   select new TeamPlayers
-                   {
-                       Teamname = x.FootballTeamName,
-                       playercount = x.Players.Count()
-
-                   };
+            return this.repo.ReadAll().Where(x => x.Manager.IsBold == true);
+                   
         }
 
+        //egy csapatban hány játékos van
+        public IEnumerable<KeyValuePair<string, int>> TeamPlayersCount()
+        {
+            return from x in this.repo.ReadAll()
+                   select new KeyValuePair<string, int>(x.FootballTeamName, x.Players.Count());
+        }
+
+        //40 évnél idősebb managerek csapatainak neve és a manager életkora
+        public IEnumerable<KeyValuePair<string,int>> OldManagersTeamName()
+        {
+            return from x in this.repo.ReadAll()
+                   where x.Manager.ManagerAge > 40
+                   select new KeyValuePair<string, int>(x.FootballTeamName, x.Manager.ManagerAge);
+        }
+
+       
+
+
+
+
+
+
 
 
     }
 
-    public class TeamPlayers
-    {
-        public string Teamname { get; set; }
-        public int playercount { get; set; }
-    }
+   
 
    
 }
