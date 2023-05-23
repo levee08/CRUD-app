@@ -19,7 +19,9 @@ namespace CTWO80_HFT_2022232.Models
         public string PlayerName { get; set; }
         [StringLength(100)]
         public string PlayerPosition { get; set; }
+
         public int FootballTeamId { get; set; }
+
         [JsonIgnore]
         public virtual FootballTeam FootballTeam { get; set; }
         public Player()

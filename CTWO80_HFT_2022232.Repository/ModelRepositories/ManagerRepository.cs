@@ -25,7 +25,11 @@ namespace CTWO80_HFT_2022232.Repository.ModelRepositories
             var old = Read(item.ManagerId);
             foreach (var prop in old.GetType().GetProperties())
             {
-                prop.SetValue(old, prop.GetValue(item));
+
+                if (prop.GetAccessors().FirstOrDefault(t => t.IsVirtual) == null)
+                {
+                    prop.SetValue(old, prop.GetValue(item));
+                }
 
             }
             ctx.SaveChanges();

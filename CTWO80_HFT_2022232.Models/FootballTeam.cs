@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace CTWO80_HFT_2022232.Models
@@ -26,6 +27,7 @@ namespace CTWO80_HFT_2022232.Models
 
         public virtual Manager Manager { get; set; }
         [NotMapped]
+        
         public virtual ICollection<Player> Players { get; set; }
         public FootballTeam()
         {
