@@ -34,6 +34,7 @@ namespace CTWO80_HFT_2022232.Client
             }
 
         }
+       
         static void List(string entity)
         {
             if (entity == "FootballTeam")
@@ -134,6 +135,7 @@ namespace CTWO80_HFT_2022232.Client
                 .Add("Create", () => Create("FootballTeam"))
                 .Add("Delete", () => Delete("FootballTeam"))
                 .Add("Update", () => Update("FootballTeam"))
+
                 .Add("Exit", ConsoleMenu.Close);
 
             var managerSubMenu = new ConsoleMenu(args, level: 1)

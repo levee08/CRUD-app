@@ -64,10 +64,8 @@ namespace CTWO80_HFT_2022232.Logic
         //poziciónként a legtöbb nyert trófea csökkenőbe
         public IEnumerable<KeyValuePair<string, int>> ThrophiesByPosition()
         {
-            return from x in this.repo.ReadAll()
-                   group x by x.PlayerPosition into g
-                   orderby g.Sum(t => t.FootballTeam.TrophiesWon) descending
-                   select new KeyValuePair<string, int>(g.Key, g.Sum(t => t.FootballTeam.TrophiesWon));
+            return this.repo.ReadAll().AsEnumerable().GroupBy(p => p.PlayerPosition)
+                        .Select(g => new KeyValuePair<string, int>(g.Key, g.Sum(p => p.FootballTeam.TrophiesWon)));
         }
     }
 
