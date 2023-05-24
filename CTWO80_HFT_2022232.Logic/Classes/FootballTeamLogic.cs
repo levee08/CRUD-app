@@ -71,8 +71,16 @@ namespace CTWO80_HFT_2022232.Logic
         //egy csapatban hány játékos van
         public IEnumerable<KeyValuePair<string, int>> TeamPlayersCount()
         {
-            return from x in this.repo.ReadAll()
-                   select new KeyValuePair<string, int>(x.FootballTeamName, x.Players.Count());
+            var teamPlayersCount = new List<KeyValuePair<string, int>>();
+
+            foreach (var team in this.repo.ReadAll())
+            {
+                var playersCount = team.Players.Count();
+                var teamKeyValuePair = new KeyValuePair<string, int>(team.FootballTeamName, playersCount);
+                teamPlayersCount.Add(teamKeyValuePair);
+            }
+
+            return teamPlayersCount;
         }
 
         //40 évnél idősebb managerek csapatainak neve és a manager életkora

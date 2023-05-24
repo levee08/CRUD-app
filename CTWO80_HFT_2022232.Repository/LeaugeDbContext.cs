@@ -22,11 +22,14 @@ namespace CTWO80_HFT_2022232.Repository
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
 
-            optionsBuilder
-                .UseLazyLoadingProxies()
-                .UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True;MultipleActiveResultSets=true");
+
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder
+                    .UseLazyLoadingProxies()
+                    .UseInMemoryDatabase("database");
+            }
 
                 
         }

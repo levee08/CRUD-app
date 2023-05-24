@@ -50,23 +50,9 @@ namespace CTWO80_HFT_2022232.Endpoint.Controllers
                 this.logic.Delete(id);
             }
 
-        [HttpGet("bold-teams")]
-        public IEnumerable<FootballTeam> BoldManagersTeamName()
-        {
-            return this.logic.BoldManagersTeamName();
-        }
+       
 
-        [HttpGet("team-players-count")]
-        public IEnumerable<KeyValuePair<string, int>> TeamPlayersCount()
-        {
-            return this.logic.TeamPlayersCount();
-        }
-
-        [HttpGet("Old-managers")]
-        public IEnumerable<KeyValuePair<string, int>> OldManagersTeamName()
-        {
-            return this.logic.OldManagersTeamName();
-        }
+       
 
     }
 }

@@ -49,17 +49,7 @@ namespace CTWO80_HFT_2022232.Endpoint.Controllers
             this.logic.Delete(id);
         }
 
-        [HttpGet("player-trophies-and-position/{name}")]
-        public IEnumerable<KeyValuePair<string, int>> PlayerTrophiesAndPosition(string name)
-        {
-            return this.logic.PlayerTrophiesAndPosition(name);
-        }
-
-        [HttpGet("Trophies-by-position")]
-        public IEnumerable<KeyValuePair<string, int>> ThrophiesByPosition()
-        {
-            return this.logic.ThrophiesByPosition();
-        }
+       
 
     }
 }

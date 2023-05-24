@@ -56,8 +56,10 @@ namespace CTWO80_HFT_2022232.Logic
         //egy player name alapján hány trófeát nyert és milyen poszton játszik
         public IEnumerable<KeyValuePair<string, int>> PlayerTrophiesAndPosition(string name)
         {
+            
             return from x in this.repo.ReadAll()
                    where x.PlayerName == name
+                   
                    select new KeyValuePair<string, int>(x.PlayerPosition, x.FootballTeam.TrophiesWon);
         }
 
@@ -65,7 +67,8 @@ namespace CTWO80_HFT_2022232.Logic
         public IEnumerable<KeyValuePair<string, int>> ThrophiesByPosition()
         {
             return this.repo.ReadAll().AsEnumerable().GroupBy(p => p.PlayerPosition)
-                        .Select(g => new KeyValuePair<string, int>(g.Key, g.Sum(p => p.FootballTeam.TrophiesWon)));
+                        .Select(g => new KeyValuePair<string, int>(g.Key, g.Sum(p => p.FootballTeam.TrophiesWon)))
+                        .OrderByDescending(kv=>kv.Value);
         }
     }
 
