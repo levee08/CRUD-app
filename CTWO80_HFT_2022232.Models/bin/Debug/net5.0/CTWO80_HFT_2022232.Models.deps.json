@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "CTWO80_HFT_2022232.Models/1.0.0": {
+        "runtime": {
+          "CTWO80_HFT_2022232.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CTWO80_HFT_2022232.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

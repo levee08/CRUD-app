@@ -1,0 +1,12 @@
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Models\bin\Debug\net5.0\CTWO80_HFT_2022232.Models.deps.json
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Models\bin\Debug\net5.0\CTWO80_HFT_2022232.Models.dll
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Models\bin\Debug\net5.0\CTWO80_HFT_2022232.Models.pdb
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Models\obj\Debug\net5.0\CTWO80_HFT_2022232.Models.csproj.AssemblyReference.cache
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Models\obj\Debug\net5.0\CTWO80_HFT_2022232.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Models\obj\Debug\net5.0\CTWO80_HFT_2022232.Models.AssemblyInfoInputs.cache
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Models\obj\Debug\net5.0\CTWO80_HFT_2022232.Models.AssemblyInfo.cs
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Models\obj\Debug\net5.0\CTWO80_HFT_2022232.Models.csproj.CoreCompileInputs.cache
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Models\obj\Debug\net5.0\CTWO80_HFT_2022232.Models.dll
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Models\obj\Debug\net5.0\refint\CTWO80_HFT_2022232.Models.dll
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Models\obj\Debug\net5.0\CTWO80_HFT_2022232.Models.pdb
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Models\obj\Debug\net5.0\ref\CTWO80_HFT_2022232.Models.dll
