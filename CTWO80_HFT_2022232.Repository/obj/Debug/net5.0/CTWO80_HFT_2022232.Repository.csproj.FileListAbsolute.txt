@@ -1,5 +1,3 @@
-C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Repository\bin\Debug\net5.0\Database.mdf
-C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Repository\bin\Debug\net5.0\Database_log.ldf
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Repository\bin\Debug\net5.0\CTWO80_HFT_2022232.Repository.deps.json
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Repository\bin\Debug\net5.0\CTWO80_HFT_2022232.Repository.runtimeconfig.json
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Repository\bin\Debug\net5.0\CTWO80_HFT_2022232.Repository.runtimeconfig.dev.json

@@ -11,8 +11,6 @@ C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Test\bin\Debug
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Test\bin\Debug\net5.0\nunit.engine.api.dll
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Test\bin\Debug\net5.0\nunit.engine.core.dll
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Test\bin\Debug\net5.0\testcentric.engine.metadata.dll
-C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Test\bin\Debug\net5.0\Database.mdf
-C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Test\bin\Debug\net5.0\Database_log.ldf
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Test\bin\Debug\net5.0\CTWO80_HFT_2022232.Test.deps.json
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Test\bin\Debug\net5.0\CTWO80_HFT_2022232.Test.runtimeconfig.json
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Test\bin\Debug\net5.0\CTWO80_HFT_2022232.Test.runtimeconfig.dev.json

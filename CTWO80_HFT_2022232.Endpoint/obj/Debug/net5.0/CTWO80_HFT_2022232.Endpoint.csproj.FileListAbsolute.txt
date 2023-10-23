@@ -1,8 +1,6 @@
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\bin\Debug\net5.0\appsettings.json
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\bin\Debug\net5.0\CTWO80_HFT_2022232.Endpoint.exe
-C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\bin\Debug\net5.0\Database.mdf
-C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\bin\Debug\net5.0\Database_log.ldf
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\bin\Debug\net5.0\CTWO80_HFT_2022232.Endpoint.deps.json
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\bin\Debug\net5.0\CTWO80_HFT_2022232.Endpoint.runtimeconfig.json
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\bin\Debug\net5.0\CTWO80_HFT_2022232.Endpoint.runtimeconfig.dev.json
@@ -69,3 +67,8 @@ C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\bin\D
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\obj\Debug\net5.0\CTWO80_HFT_2022232.Endpoint.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\obj\Debug\net5.0\staticwebassets\CTWO80_HFT_2022232.Endpoint.StaticWebAssets.Pack.cache
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\obj\Debug\net5.0\staticwebassets\msbuild.CTWO80_HFT_2022232.Endpoint.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\obj\Debug\net5.0\staticwebassets\msbuild.build.CTWO80_HFT_2022232.Endpoint.props
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.CTWO80_HFT_2022232.Endpoint.props
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.CTWO80_HFT_2022232.Endpoint.props

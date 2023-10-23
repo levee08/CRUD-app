@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using static Humanizer.In;
 
 namespace CTWO80_HFT_2022232.Endpoint
 {
@@ -45,9 +46,13 @@ namespace CTWO80_HFT_2022232.Endpoint
             
 
             services.AddControllers();
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "CTWO80_HFT_2022232.Endpoint", Version = "v1" });
+            //});
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CTWO80_HFT_2022232.Endpoint", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MovieDbApp.Endpoint", Version = "v1"});
             });
         }
 
@@ -79,6 +84,12 @@ namespace CTWO80_HFT_2022232.Endpoint
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/ swagger / v1 / swagger.json", "MovieDbApp.Endpoint v1"));
+
+
+
         }
     }
 }

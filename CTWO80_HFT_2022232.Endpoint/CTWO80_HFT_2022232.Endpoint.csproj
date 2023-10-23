@@ -10,5 +10,6 @@
     <ProjectReference Include="..\CTWO80_HFT_2022232.Repository\CTWO80_HFT_2022232.Repository.csproj" />
 	  <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
+	
 
 </Project>
