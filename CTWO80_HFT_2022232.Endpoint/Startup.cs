@@ -17,6 +17,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using static Humanizer.In;
+using CTWO80_HFT_2022232.Endpoint.Services;
 
 namespace CTWO80_HFT_2022232.Endpoint
 {
@@ -38,7 +39,8 @@ namespace CTWO80_HFT_2022232.Endpoint
             services.AddTransient<IRepository<FootballTeam>, FootballTeamRepository>();
             services.AddTransient<IRepository<Manager>, ManagerRepository>();
             services.AddTransient<IRepository<Player>, PlayerRepository>();
-            
+
+            services.AddSignalR();
 
             services.AddTransient<IFootballTeamLogic, FootballTeamLogic>();
             services.AddTransient<IManagerLogic, ManagerLogic>();
@@ -83,6 +85,7 @@ namespace CTWO80_HFT_2022232.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
 
             app.UseSwagger();

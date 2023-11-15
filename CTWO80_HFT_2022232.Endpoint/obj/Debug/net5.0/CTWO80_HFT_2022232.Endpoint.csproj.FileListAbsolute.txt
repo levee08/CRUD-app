@@ -72,3 +72,4 @@ C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\obj\D
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\obj\Debug\net5.0\staticwebassets\msbuild.build.CTWO80_HFT_2022232.Endpoint.props
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.CTWO80_HFT_2022232.Endpoint.props
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.CTWO80_HFT_2022232.Endpoint.props
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\CTWO80_HFT_2022232.Endpoint\bin\Debug\net5.0\System.Net.WebSockets.WebSocketProtocol.dll
