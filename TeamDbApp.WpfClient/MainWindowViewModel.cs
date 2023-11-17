@@ -10,11 +10,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace TeamDbApp.WpfClient
 {
-    class MainWindowViewModel :ObservableRecipient
+   public class MainWindowViewModel :ObservableRecipient
     {
         public RestCollection<FootballTeam> FootballTeams { get; set;}
         private FootballTeam selectedTeam;
@@ -30,7 +31,8 @@ namespace TeamDbApp.WpfClient
                     {
                         FootballTeamName = value.FootballTeamName,
                         FootballTeamId = value.FootballTeamId,
-                        CurrentPlacement= value.CurrentPlacement
+                        CurrentPlacement= value.CurrentPlacement,
+                        TrophiesWon =value.TrophiesWon
                         
                     };
 
@@ -70,7 +72,9 @@ namespace TeamDbApp.WpfClient
                     FootballTeams.Add(new FootballTeam()
                     {
                         FootballTeamName = selectedTeam.FootballTeamName,
-                        CurrentPlacement = selectedTeam.CurrentPlacement    
+                        CurrentPlacement = selectedTeam.CurrentPlacement,
+                        TrophiesWon=selectedTeam.TrophiesWon
+                       
 
                     });
                 });
