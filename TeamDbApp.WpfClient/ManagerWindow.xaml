@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamDbApp.WpfClient"
         mc:Ignorable="d"
-        Title="ManagerWindow" Height="450" Width="800">
+        Title="ManagerWindow" Height="600" Width="800">
     <Window.DataContext>
         <local:ManagerWindowViewModel/>
     </Window.DataContext>
@@ -24,12 +24,10 @@
         <StackPanel Grid.Column="1" >
             <Label Content="Name" Background="LightBlue" Padding="10"/>
             <TextBox Text="{Binding SelectedManager.ManagerName}" Padding="10" Margin="0,0,0,10"/>
-            <Label Content="Managed Team" Background="LightBlue" Padding="10"/>
-            <ListBox Text="{Binding SelectedManager.FootballTeams}" Padding="10" Margin="0,0,0,10"/>
             <Label Content="Age" Background="LightBlue" Padding="10"/>
             <TextBox Text="{Binding SelectedManager.ManagerAge}" Padding="10" Margin="0,0,0,10"/>
             <Label Content="Bold?" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedManager.IsBold}" Padding="10" Margin="0,0,0,30"/>
+            <CheckBox IsChecked="{Binding SelectedManager.IsBold}" Content="Bold?" Padding="10" Margin="0,0,0,30"/>
             
 
             <Button Content="Create Manager" Command="{Binding CreateManagerCommand}" Padding="10" Margin="10"/>

@@ -32,12 +32,13 @@ namespace TeamDbApp.WpfClient
                         ManagerName = value.ManagerName,
                        ManagerId = value.ManagerId,
                        ManagerAge =value.ManagerAge,
-                       FootballTeams = value.FootballTeams,
-                       IsBold=value.IsBold
+                     
+                       IsBold =value.IsBold
 
                     };
 
                 }
+               
                 OnPropertyChanged();
                 (DeleteManagerCommand as RelayCommand).NotifyCanExecuteChanged();
                 (CreateManagerCommand as RelayCommand).NotifyCanExecuteChanged();
@@ -71,7 +72,7 @@ namespace TeamDbApp.WpfClient
                         ManagerName = selectedManager.ManagerName,
                         ManagerId = selectedManager.ManagerId,
                         ManagerAge = selectedManager.ManagerAge,
-                        FootballTeams = selectedManager.FootballTeams,
+                       
                         IsBold = selectedManager.IsBold
 
 
