@@ -82,3 +82,5 @@ C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\TeamDbApp.WpfClient\obj\Debug\net
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\TeamDbApp.WpfClient\obj\Debug\net5.0-windows\Window1.baml
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\TeamDbApp.WpfClient\obj\Debug\net5.0-windows\ManagerWindow.g.cs
 C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\TeamDbApp.WpfClient\obj\Debug\net5.0-windows\ManagerWindow.baml
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\TeamDbApp.WpfClient\obj\Debug\net5.0-windows\PlayerWindow.g.cs
+C:\Users\tlevi\source\repos\CTWO80_HFT_2022232\TeamDbApp.WpfClient\obj\Debug\net5.0-windows\PlayerWindow.baml

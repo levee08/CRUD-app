@@ -21,28 +21,41 @@ namespace TeamDbApp.WpfClient
     {
         private MainWindowViewModel TeamviewModel;
         private ManagerWindowViewModel ManagerviewModel;
-
+        private PlayerWindowViewModel PlayerviewModel;
         public Window1()
         {
             InitializeComponent();
             TeamviewModel = new MainWindowViewModel();
             DataContext = TeamviewModel;
 
-            ManagerviewModel = new ManagerWindowViewModel();
-            DataContext = ManagerviewModel;
 
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
             MainWindow footballTeamWindow = new MainWindow(TeamviewModel);
             footballTeamWindow.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+
+            ManagerviewModel = new ManagerWindowViewModel();
+            DataContext = ManagerviewModel;
+
             ManagerWindow managerWindow = new ManagerWindow(ManagerviewModel);
             managerWindow.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            PlayerviewModel = new PlayerWindowViewModel();
+            DataContext = PlayerviewModel;
+
+            PlayerWindow playerWindow =new PlayerWindow(PlayerviewModel);
+            playerWindow.Show();
         }
     }
 }

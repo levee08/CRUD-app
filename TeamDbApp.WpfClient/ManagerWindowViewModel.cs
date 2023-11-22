@@ -31,8 +31,7 @@ namespace TeamDbApp.WpfClient
                     {
                         ManagerName = value.ManagerName,
                        ManagerId = value.ManagerId,
-                       ManagerAge =value.ManagerAge,
-                     
+                       ManagerAge =value.ManagerAge,                   
                        IsBold =value.IsBold
 
                     };
@@ -70,7 +69,7 @@ namespace TeamDbApp.WpfClient
                     Managers.Add(new Manager()
                     {
                         ManagerName = selectedManager.ManagerName,
-                        ManagerId = selectedManager.ManagerId,
+                       
                         ManagerAge = selectedManager.ManagerAge,
                        
                         IsBold = selectedManager.IsBold
