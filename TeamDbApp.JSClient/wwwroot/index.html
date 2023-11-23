@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Nem tudom</title>
+    <link rel="stylesheet" href="style.css"/> 
+</head>
+<body>
+    <h1>Team Catalog</h1>
+    <div id="formdiv">
+        <label>Team Name</label>
+        <input type="text" id="teamname" />
+        <label>Team Placement</label>
+        <input type="text" id="teamplacement" />
+        <label>Team Throphies count</label>
+        <input type="text" id="teamtrophies" />
+        <button type="button" onclick="create()">Add Team</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Placement</th>
+                <th>Trophie won</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        
+        </tbody>
+       
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
