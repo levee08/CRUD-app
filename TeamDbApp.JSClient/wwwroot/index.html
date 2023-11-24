@@ -40,6 +40,7 @@
         </tbody>
 
     </table>
+
     <h2>Manager Table</h2>
     <div id="managerformdiv">
         <label>Manager Name</label>
@@ -72,6 +73,34 @@
         <tbody id="managerresultarea">
         </tbody>
     </table>
+
+    <h2>Player Table</h2>
+    <div id="playerformdiv">
+        <label>Player Name</label>
+        <input type="text" id="playername" />
+        <label>Player Position</label>
+        <input type="text" id="playerposition" />
+        <button type="button" onclick="playercreate()">Add Player</button>
+    </div>
+    <div id="playerupdateformdiv">
+        <label>Player Name</label>
+        <input type="text" id="playernametoupdate" />
+        <label>Player Position</label>
+        <input type="text" id="playerpositiontoupdate" />
+        <button type="button" onclick="playerupdate()">Update Player</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody id="playerresultarea">
+        </tbody>
+    </table>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
     <script src="script.js"></script>
 </body>

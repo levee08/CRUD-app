@@ -1,8 +1,10 @@
 ﻿let teams = [];
 let managers = [];
+let players = [];
 let connection = null;
 let teamtoUpdateID = -1;
 let managertoUpdateID = -1;
+let playertoUpdateID = -1;
 getdata();
 setupSignalR();
 
@@ -19,6 +21,24 @@ function setupSignalR() {
         getdata();
     });
     connection.on("footballTeamUpdated", (user, message) => {
+        getdata();
+    });
+    connection.on("ManagerCreated", (user, message) => {
+        getdata();
+    });
+    connection.on("ManagerDeleted", (user, message) => {
+        getdata();
+    });
+    connection.on("ManagerUpdated", (user, message) => {
+        getdata();
+    });
+    connection.on("PlayerCreated", (user, message) => {
+        getdata();
+    });
+    connection.on("PlayerDeleted", (user, message) => {
+        getdata();
+    });
+    connection.on("PlayerUpdated", (user, message) => {
         getdata();
     });
 
@@ -43,6 +63,13 @@ async function getdata() {
             managers = y;
             display();
         });
+
+    await fetch('http://localhost:29829/Player')
+        .then(x => x.json())
+        .then(y => {
+            players= y;
+            display();
+        });
 }
 
 async function start() {
@@ -60,8 +87,10 @@ function display() {
 
     const resultArea = document.getElementById('resultarea');
     const Managerresultarea = document.getElementById('managerresultarea');
+    const Playerresultarea = document.getElementById('playerresultarea');
     resultArea.innerHTML = '';
     Managerresultarea.innerHTML = '';
+    Playerresultarea.innerHTML = '';
 
     teams.forEach(t => {
         resultArea.innerHTML +=
@@ -85,6 +114,16 @@ function display() {
         "</tr > ";
 
     });
+    players.forEach(y => {
+        Playerresultarea.innerHTML +=
+            "<tr><td>" + y.playerId+ "</td><td>"
+            + y.playerName + "</td><td>"
+            + y.playerPosition + "</td><td>"
+            + `<button type="button" onclick="playerremove(${y.playerId})">Delete</button>`
+            + `<button type="button" onclick="playerShowUpdate(${y.playerId})">Update</button>`
+        "</tr > ";
+
+    });
 
 }
 function ShowUpdate(id) {
@@ -100,6 +139,12 @@ function managerShowUpdate(id) {
     document.getElementById('isboldtoupdate').checked = managers.find(t => t['managerId'] == id)['isBold'];
     document.getElementById('managerupdateformdiv').style.display = 'flex';
     managertoUpdateID = id;
+}
+function playerShowUpdate(id) {
+    document.getElementById('playernametoupdate').value = players.find(t => t['playerId'] == id)['playerName'];
+    document.getElementById('playerpositiontoupdate').value = players.find(t => t['playerId'] == id)['playerPosition'];
+    document.getElementById('playerupdateformdiv').style.display = 'flex';
+    playertoUpdateID = id;
 }
 
 function remove(id) {
@@ -118,6 +163,20 @@ function remove(id) {
 }
 function managerremove(id) {
     fetch('http://localhost:29829/Manager/' + id, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json', },
+        body: null
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success:', data);
+            getdata();
+        })
+        .catch((error) => { console.error('Error:', error); })
+
+}
+function playerremove(id) {
+    fetch('http://localhost:29829/Player/' + id, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json', },
         body: null
@@ -152,6 +211,26 @@ function create() {
             console.error('Error: ', error);
         });
         
+}
+function playercreate() {
+    let playername = document.getElementById('playername').value;
+    let playerposition = document.getElementById('playerposition').value;
+    fetch('http://localhost:29829/Player', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', },
+        body: JSON.stringify(
+            {
+                playerName: playername, playerPosition: playerposition
+            })
+    }).then(response => response)
+        .then(data => {
+            console.log('Success: ', data);
+            getdata();
+        })
+        .catch((error) => {
+            console.error('Error: ', error);
+        });
+
 }
 function managercreate() {
     let managername = document.getElementById('managername').value;
@@ -219,5 +298,28 @@ function managerupdate() {
             console.error('Error: ', error);
         });
     
+
+}
+function playerupdate() {
+    document.getElementById('playerupdateformdiv').style.display = 'none';
+    let playername = document.getElementById('playernametoupdate').value;
+    let playerposition = document.getElementById('playerpositiontoupdate').value;
+
+    fetch('http://localhost:29829/Player', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', },
+        body: JSON.stringify(
+            {
+                playerName: playername, playerPosition: playerposition, playerId: playertoUpdateID
+            })
+    }).then(response => response.json())
+        .then(data => {
+            console.log('Success: ', data);
+            getdata();
+        })
+        .catch((error) => {
+            console.error('Error: ', error);
+        });
+
 
 }
