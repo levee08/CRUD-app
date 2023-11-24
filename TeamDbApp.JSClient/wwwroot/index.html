@@ -16,6 +16,15 @@
         <input type="text" id="teamtrophies" />
         <button type="button" onclick="create()">Add Team</button>
     </div>
+    <div id="updateformdiv">
+        <label>Team Name</label>
+        <input type="text" id="teamnametoupdate" />
+        <label>Team Placement</label>
+        <input type="text" id="teamplacementtoupdate" />
+        <label>Team Throphies count</label>
+        <input type="text" id="teamtrophiestoupdate" />
+        <button type="button" onclick="update()">Update Team</button>
+    </div>
 
     <table>
         <thead>
@@ -28,11 +37,11 @@
             </tr>
         </thead>
         <tbody id="resultarea">
-        
         </tbody>
-       
+
     </table>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

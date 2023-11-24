@@ -15,10 +15,13 @@ th,td{
 th{
     background-color:lightblue;
 }
-#formdiv{
-    display:flex;
-    flex-direction:column;
-    margin-bottom:20px;
+#updateformdiv {
+    display: none;
+}
+#formdiv {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 #formdiv label, button ,input{
     margin: 10px;
