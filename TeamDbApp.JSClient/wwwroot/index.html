@@ -40,7 +40,38 @@
         </tbody>
 
     </table>
-
+    <h2>Manager Table</h2>
+    <div id="managerformdiv">
+        <label>Manager Name</label>
+        <input type="text" id="managername" />
+        <label>Manager Age</label>
+        <input type="text" id="managerage" />
+        <label>Is bold?</label>
+        <input type="checkbox" id="isbold" />
+        <button type="button" onclick="managercreate()">Add Manager</button>
+    </div>
+    <div id="managerupdateformdiv">
+        <label>Manager Name</label>
+        <input type="text" id="managernametoupdate" />
+        <label>Manager Age</label>
+        <input type="text" id="manageragetoupdate" />
+        <label>Is bold?</label>
+        <input type="checkbox" id="isboldtoupdate" />
+        <button type="button" onclick="managerupdate()">Update Manager</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Bold</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="managerresultarea">
+        </tbody>
+    </table>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
     <script src="script.js"></script>
 </body>

@@ -30,10 +30,10 @@ namespace TeamDbApp.WpfClient
                     selectedManager = new Manager()
                     {
                         ManagerName = value.ManagerName,
-                       ManagerId = value.ManagerId,
-                       ManagerAge =value.ManagerAge,                   
-                       IsBold =value.IsBold
-
+                        ManagerId = value.ManagerId,
+                        ManagerAge = value.ManagerAge,
+                        IsBold = value.IsBold
+                       
                     };
 
                 }
