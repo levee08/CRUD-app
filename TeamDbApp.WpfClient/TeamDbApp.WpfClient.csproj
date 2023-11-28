@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CTWO80_HFT_2022232.Endpoint\CTWO80_HFT_2022232.Endpoint.csproj" />
+    <ProjectReference Include="..\CTWO80_HFT_2022232.Logic\CTWO80_HFT_2022232.Logic.csproj" />
     <ProjectReference Include="..\CTWO80_HFT_2022232.Models\CTWO80_HFT_2022232.Models.csproj" />
   </ItemGroup>
 	<ItemGroup>

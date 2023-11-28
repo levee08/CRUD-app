@@ -26,12 +26,22 @@
             <TextBox Text="{Binding SelectedPlayer.PlayerName}" Padding="10" Margin="0,0,0,10"/>
             <Label Content="Position" Background="LightBlue" Padding="10"/>
             <TextBox Text="{Binding SelectedPlayer.PlayerPosition}" Padding="10" Margin="0,0,0,10"/>
-            
+            <Label Content="TeamID" Background="LightBlue" Padding="10"/>
+            <TextBox Text="{Binding SelectedPlayer.FootballTeamId}" Padding="10" Margin="0,0,0,10"/>
+
             <Button Content="Create Player" Command="{Binding CreatePlayerCommand}" Padding="10" Margin="10"/>
             <Button Content="Update Player" Command="{Binding UpdatePlayerCommand}" Padding="10" Margin="10"/>
             <Button Content="Delete Player" Command="{Binding DeletePlayerCommand}" Padding="10" Margin="10"/>
+            <Button Content="Throphies By Position" Command="{Binding TrophiesByPosition}" Padding="10" Margin="10"/>
 
+            <DataGrid ItemsSource="{Binding TrophiesByPositionResult}" AutoGenerateColumns="False" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Position" Binding="{Binding Key}"/>
+                    <DataGridTextColumn Header="Trophies" Binding="{Binding Value}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
+       
 
     </Grid>
 </Window>

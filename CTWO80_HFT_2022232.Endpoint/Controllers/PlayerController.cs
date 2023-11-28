@@ -57,6 +57,7 @@ namespace CTWO80_HFT_2022232.Endpoint.Controllers
             this.hub.Clients.All.SendAsync("PlayerDeleted", PlayerToDelete);
         }
 
+
        
 
     }

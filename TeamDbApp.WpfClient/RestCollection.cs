@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR.Client;
+﻿using CTWO80_HFT_2022232.Models;
+using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace MovieDbApp.WpfClient
 {
     public class RestService
     {
-        HttpClient client;
+        public HttpClient client;
 
         public RestService(string baseurl, string pingableEndpoint = "swagger")
         {
@@ -72,7 +73,7 @@ namespace MovieDbApp.WpfClient
             {
                 var error = await response.Content.ReadAsAsync<RestExceptionInfo>();
                 throw new ArgumentException(error.Msg);
-            }
+            }   
             return items;
         }
 
@@ -350,7 +351,8 @@ namespace MovieDbApp.WpfClient
         {
             if (hasSignalR)
             {
-                this.rest.PostAsync(item, typeof(T).Name);
+                 this.rest.PostAsync(item, typeof(T).Name);
+                
             }
             else
             {
@@ -364,6 +366,7 @@ namespace MovieDbApp.WpfClient
                         });
                     });
                 });
+              
             }
 
         }
@@ -373,6 +376,7 @@ namespace MovieDbApp.WpfClient
             if (hasSignalR)
             {
                 this.rest.PutAsync(item, typeof(T).Name);
+              
             }
             else
             {
@@ -386,6 +390,7 @@ namespace MovieDbApp.WpfClient
                         });
                     });
                 });
+               
             }
         }
 
@@ -394,6 +399,7 @@ namespace MovieDbApp.WpfClient
             if (hasSignalR)
             {
                 this.rest.DeleteAsync(id, typeof(T).Name);
+               
             }
             else
             {
@@ -407,9 +413,37 @@ namespace MovieDbApp.WpfClient
                         });
                     });
                 });
+             
             }
 
+
         }
+        public RestCollection<KeyValuePair<string, int>> GetNonCrudData(string endpoint)
+        {
+            try
+            {
+                HttpResponseMessage response = rest.client.GetAsync(endpoint).GetAwaiter().GetResult();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    List<KeyValuePair<string, int>> items = response.Content.ReadAsAsync<List<KeyValuePair<string, int>>>().GetAwaiter().GetResult();
+                    return new RestCollection<KeyValuePair<string, int>>("http://localhost:29829/", "PlayerNonCrud/ThrophiesByPosition", "hub") { items = items };
+                }
+                                                                        // http://localhost:29829/PlayerNonCrud/ThrophiesByPosition
+                else
+                {   
+                    throw new HttpRequestException($"HTTP Error: {response.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Kezeld az esetleges kivételeket
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return new RestCollection<KeyValuePair<string, int>>("http://localhost:29829/", "PlayerNonCrud/ThrophiesByPosition", "hub");
+            }
+        }
+
+
 
 
     }
