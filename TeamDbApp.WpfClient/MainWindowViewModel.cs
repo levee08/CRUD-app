@@ -32,7 +32,8 @@ namespace TeamDbApp.WpfClient
                         FootballTeamName = value.FootballTeamName,
                         FootballTeamId = value.FootballTeamId,
                         CurrentPlacement= value.CurrentPlacement,
-                        TrophiesWon =value.TrophiesWon
+                        TrophiesWon =value.TrophiesWon,
+                        Manager =value.Manager
                         
                     };
 
@@ -73,19 +74,20 @@ namespace TeamDbApp.WpfClient
                     {
                         FootballTeamName = selectedTeam.FootballTeamName,
                         CurrentPlacement = selectedTeam.CurrentPlacement,
-                        TrophiesWon=selectedTeam.TrophiesWon
+                        TrophiesWon=selectedTeam.TrophiesWon,
+                        Manager =selectedTeam.Manager
                        
 
-                    });
+                    }, "http://localhost:29829/Manager");
                 });
                 UpdateTeamCommand = new RelayCommand(()=>
                 {
-                    FootballTeams.Update(selectedTeam);
+                    FootballTeams.Update(selectedTeam, "http://localhost:29829/FootballTeam");
                 });
 
                 DeleteTeamCommand = new RelayCommand(() =>
                 {
-                    FootballTeams.Delete(SelectedTeam.FootballTeamId);
+                    FootballTeams.Delete(SelectedTeam.FootballTeamId, "http://localhost:29829/FootballTeam");
                 },
                 () =>
                 {

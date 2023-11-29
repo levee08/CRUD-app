@@ -1,5 +1,6 @@
 ﻿using CTWO80_HFT_2022232.Models;
 using Microsoft.AspNetCore.SignalR.Client;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -309,23 +310,23 @@ namespace MovieDbApp.WpfClient
                     }
                     else
                     {
-                        Init();
+                        Init(endpoint);
                     }
 
                 });
                 this.notify.AddHandler<T>(type.Name + "Updated", (T item) =>
                 {
-                    Init();
+                    Init(endpoint);
                 });
 
                 this.notify.Init();
             }
-            Init();
+            Init(endpoint);
         }
 
-        private async Task Init()
-        {
-            items = await rest.GetAsync<T>(typeof(T).Name);
+        private async Task Init(string endpoint)
+        {   
+            items = await rest.GetAsync<T>(endpoint);
             CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
         }
 
@@ -347,18 +348,18 @@ namespace MovieDbApp.WpfClient
             else return new List<T>().GetEnumerator();
         }
 
-        public void Add(T item)
+        public void Add(T item,string endpoint)
         {
             if (hasSignalR)
             {
-                 this.rest.PostAsync(item, typeof(T).Name);
+                 this.rest.PostAsync(item, endpoint);
                 
             }
             else
             {
-                this.rest.PostAsync(item, typeof(T).Name).ContinueWith((t) =>
+                this.rest.PostAsync(item, endpoint).ContinueWith((t) =>
                 {
-                    Init().ContinueWith(z =>
+                    Init(endpoint).ContinueWith(z =>
                     {
                         Application.Current.Dispatcher.Invoke(() =>
                         {
@@ -371,18 +372,18 @@ namespace MovieDbApp.WpfClient
 
         }
 
-        public void Update(T item)
+        public void Update(T item,string endpoint)
         {
             if (hasSignalR)
             {
-                this.rest.PutAsync(item, typeof(T).Name);
+                this.rest.PutAsync(item, endpoint);
               
             }
             else
             {
-                this.rest.PutAsync(item, typeof(T).Name).ContinueWith((t) =>
+                this.rest.PutAsync(item, endpoint).ContinueWith((t) =>
                 {
-                    Init().ContinueWith(z =>
+                    Init(endpoint).ContinueWith(z =>
                     {
                         Application.Current.Dispatcher.Invoke(() =>
                         {
@@ -394,18 +395,18 @@ namespace MovieDbApp.WpfClient
             }
         }
 
-        public void Delete(int id)
+        public void Delete(int id,string endpoint)
         {
             if (hasSignalR)
             {
-                this.rest.DeleteAsync(id, typeof(T).Name);
+                this.rest.DeleteAsync(id, endpoint);
                
             }
             else
             {
-                this.rest.DeleteAsync(id, typeof(T).Name).ContinueWith((t) =>
+                this.rest.DeleteAsync(id, endpoint).ContinueWith((t) =>
                 {
-                    Init().ContinueWith(z =>
+                    Init(endpoint).ContinueWith(z =>
                     {
                         Application.Current.Dispatcher.Invoke(() =>
                         {
@@ -418,6 +419,7 @@ namespace MovieDbApp.WpfClient
 
 
         }
+        
         public RestCollection<KeyValuePair<string, int>> GetNonCrudData(string endpoint)
         {
             try
@@ -426,22 +428,27 @@ namespace MovieDbApp.WpfClient
 
                 if (response.IsSuccessStatusCode)
                 {
-                    List<KeyValuePair<string, int>> items = response.Content.ReadAsAsync<List<KeyValuePair<string, int>>>().GetAwaiter().GetResult();
+                    HttpContent content = response.Content;
+                    Task<string> result = content.ReadAsStringAsync();
+                    string contentString = result.GetAwaiter().GetResult();
+
+                    List<KeyValuePair<string, int>> items = JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(contentString);
+
                     return new RestCollection<KeyValuePair<string, int>>("http://localhost:29829/", "PlayerNonCrud/ThrophiesByPosition", "hub") { items = items };
                 }
-                                                                        // http://localhost:29829/PlayerNonCrud/ThrophiesByPosition
                 else
-                {   
+                {
                     throw new HttpRequestException($"HTTP Error: {response.StatusCode}");
                 }
             }
             catch (Exception ex)
             {
-                // Kezeld az esetleges kivételeket
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return new RestCollection<KeyValuePair<string, int>>("http://localhost:29829/", "PlayerNonCrud/ThrophiesByPosition", "hub");
             }
         }
+
+
 
 
 

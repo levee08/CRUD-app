@@ -144,6 +144,37 @@ namespace CTWO80_HFT_2022232.Client
 
             response.EnsureSuccessStatusCode();
         }
+        public async Task<List<T>> GetAsync<T>(string endpoint)
+        {
+            List<T> items = new List<T>();
+            HttpResponseMessage response = await client.GetAsync(endpoint);
+            if (response.IsSuccessStatusCode)
+            {
+                items = await response.Content.ReadAsAsync<List<T>>();
+            }
+            else
+            {
+                var error = await response.Content.ReadAsAsync<RestExceptionInfo>();
+                throw new ArgumentException(error.Msg);
+            }
+            return items;
+        }
+
+        public async Task<T> GetSingleAsync<T>(string endpoint)
+        {
+            T item = default(T);
+            HttpResponseMessage response = await client.GetAsync(endpoint);
+            if (response.IsSuccessStatusCode)
+            {
+                item = await response.Content.ReadAsAsync<T>();
+            }
+            else
+            {
+                var error = await response.Content.ReadAsAsync<RestExceptionInfo>();
+                throw new ArgumentException(error.Msg);
+            }
+            return item;
+        }
 
     }
     public class RestExceptionInfo

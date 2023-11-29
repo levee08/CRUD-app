@@ -24,8 +24,20 @@ namespace TeamDbApp.WpfClient
     {
         public RestCollection<Player> Players { get; set; }
         private Player selectedPlayer;
-       IEnumerable<KeyValuePair<string, int>> TrophiesByPositionResult =new List<KeyValuePair<string, int>>();
+        private IEnumerable<KeyValuePair<string, int>> trophiesByPositionResult;
 
+        public IEnumerable<KeyValuePair<string, int>> TrophiesByPositionResult
+        {
+            get { return trophiesByPositionResult; }
+            set
+            {
+                if (value != trophiesByPositionResult)
+                {
+                    trophiesByPositionResult = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public Player SelectedPlayer
         {
             get { return selectedPlayer; }
@@ -83,16 +95,16 @@ namespace TeamDbApp.WpfClient
                         PlayerPosition = selectedPlayer.PlayerPosition,
                         FootballTeamId = selectedPlayer.FootballTeamId
 
-                    });
+                    }, "http://localhost:29829/Player");
                 });
                 UpdatePlayerCommand = new RelayCommand(() =>
                 {
-                    Players.Update(selectedPlayer);
+                    Players.Update(selectedPlayer, "http://localhost:29829/Player");
                 });
 
                 DeletePlayerCommand = new RelayCommand(() =>
                 {
-                    Players.Delete(SelectedPlayer.PlayerId);
+                    Players.Delete(SelectedPlayer.PlayerId, "http://localhost:29829/Player");
                 },
                 () =>
                 {
@@ -100,10 +112,7 @@ namespace TeamDbApp.WpfClient
                 });
                 TrophiesByPosition = new RelayCommand(async () =>
                 {
-                   TrophiesByPositionResult = Players.GetNonCrudData("http://localhost:29829/PlayerNonCrud/ThrophiesByPosition");
-
-                   
-
+                    TrophiesByPositionResult = Players.GetNonCrudData("http://localhost:29829/PlayerNonCrud/ThrophiesByPosition");        
                 });
 
 

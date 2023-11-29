@@ -34,7 +34,7 @@
             <Button Content="Delete Player" Command="{Binding DeletePlayerCommand}" Padding="10" Margin="10"/>
             <Button Content="Throphies By Position" Command="{Binding TrophiesByPosition}" Padding="10" Margin="10"/>
 
-            <DataGrid ItemsSource="{Binding TrophiesByPositionResult}" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid ItemsSource="{Binding TrophiesByPositionResult}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Position" Binding="{Binding Key}"/>
                     <DataGridTextColumn Header="Trophies" Binding="{Binding Value}"/>

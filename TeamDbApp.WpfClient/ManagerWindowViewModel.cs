@@ -75,16 +75,16 @@ namespace TeamDbApp.WpfClient
                         IsBold = selectedManager.IsBold
 
 
-                    });
+                    }, "http://localhost:29829/Manager");
                 });
                 UpdateManagerCommand = new RelayCommand(() =>
                 {
-                    Managers.Update(selectedManager);
+                    Managers.Update(selectedManager, "http://localhost:29829/Manager");
                 });
 
                 DeleteManagerCommand = new RelayCommand(() =>
                 {
-                    Managers.Delete(SelectedManager.ManagerId);
+                    Managers.Delete(SelectedManager.ManagerId, "http://localhost:29829/Manager");
                 },
                 () =>
                 {
