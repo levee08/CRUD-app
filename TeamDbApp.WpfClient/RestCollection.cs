@@ -447,9 +447,69 @@ namespace MovieDbApp.WpfClient
                 return new RestCollection<KeyValuePair<string, int>>("http://localhost:29829/", "PlayerNonCrud/ThrophiesByPosition", "hub");
             }
         }
+        public RestCollection<KeyValuePair<string, int>> GetNonCrudDataTwo(string endpoint,string name)
+        {
+            try
+            {
+                HttpResponseMessage response = rest.client.GetAsync(endpoint).GetAwaiter().GetResult();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    HttpContent content = response.Content;
+                    Task<string> result = content.ReadAsStringAsync();
+                    string contentString = result.GetAwaiter().GetResult();
+
+                    List<KeyValuePair<string, int>> items = JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(contentString);
+
+                    return new RestCollection<KeyValuePair<string, int>>("http://localhost:29829/", $"PlayerNonCrud/PlayerTrophiesAndPosition/{name}", "hub") { items = items };
+                }
+                else
+                {
+                    throw new HttpRequestException($"HTTP Error: {response.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return new RestCollection<KeyValuePair<string, int>>("http://localhost:29829/", $"PlayerNonCrud/PlayerTrophiesAndPosition/{name}", "hub");
+            }
+        }
+        public RestCollection<FootballTeam> BoldManagersNonCrud(string endpoint)
+        {
+            try
+            {
+                HttpResponseMessage response = rest.client.GetAsync(endpoint).GetAwaiter().GetResult();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    HttpContent content = response.Content;
+                    Task<string> result = content.ReadAsStringAsync();
+                    string contentString = result.GetAwaiter().GetResult();
+
+                    List<FootballTeam> items = JsonConvert.DeserializeObject<List<FootballTeam>>(contentString);
+
+                    return new RestCollection<FootballTeam>("http://localhost:29829/", "noncrud/BoldManagersTeamName", "hub") { items = items };
+                }
+                else
+                {
+                    throw new HttpRequestException($"HTTP Error: {response.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return new RestCollection<FootballTeam>("http://localhost:29829/", "noncrud/BoldManagersTeamName", "hub");
+            }
+        }
+
+
+        ///PlayerNonCrud/PlayerTrophiesAndPosition/{name}
 
 
 
+        //​/noncrud​/TeamPlayersCount
+
+        ///noncrud/OldManagersTeamName
 
 
 

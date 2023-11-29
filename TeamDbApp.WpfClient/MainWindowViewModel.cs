@@ -19,7 +19,20 @@ namespace TeamDbApp.WpfClient
     {
         public RestCollection<FootballTeam> FootballTeams { get; set;}
         private FootballTeam selectedTeam;
+        private RestCollection<FootballTeam> boldManagers;
 
+        public RestCollection<FootballTeam> BoldManagers
+        {
+            get { return boldManagers; }
+            set
+            {
+                if (value != boldManagers)
+                {
+                    boldManagers = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public FootballTeam SelectedTeam
         {
             get { return selectedTeam; }
@@ -42,6 +55,7 @@ namespace TeamDbApp.WpfClient
                 (DeleteTeamCommand as RelayCommand).NotifyCanExecuteChanged();
                 (CreateTeamCommand as RelayCommand).NotifyCanExecuteChanged();
                 (UpdateTeamCommand as RelayCommand).NotifyCanExecuteChanged();
+                (BoldManagersCommand as RelayCommand).NotifyCanExecuteChanged();
             }
         }
         public static bool IsInDesignMode
@@ -59,6 +73,7 @@ namespace TeamDbApp.WpfClient
         public ICommand CreateTeamCommand { get; set; }
         public ICommand UpdateTeamCommand { get; set; }
         public ICommand DeleteTeamCommand { get; set; }
+        public ICommand BoldManagersCommand { get; set; }
 
         public MainWindowViewModel()
         {
@@ -93,6 +108,11 @@ namespace TeamDbApp.WpfClient
                 {
                     return SelectedTeam != null;
                 });
+                BoldManagersCommand = new RelayCommand(() =>
+                {
+                    BoldManagers = FootballTeams.BoldManagersNonCrud("http://localhost:29829/noncrud/BoldManagersTeamName");
+                });
+
             }
             selectedTeam = new FootballTeam();
         }

@@ -33,8 +33,15 @@
             <Button Content="Update Player" Command="{Binding UpdatePlayerCommand}" Padding="10" Margin="10"/>
             <Button Content="Delete Player" Command="{Binding DeletePlayerCommand}" Padding="10" Margin="10"/>
             <Button Content="Throphies By Position" Command="{Binding TrophiesByPosition}" Padding="10" Margin="10"/>
+            <Button Content="PlayerData" Command="{Binding PlayerTrophiesandPosition}" Padding="10" Margin="10"/>
 
-            <DataGrid ItemsSource="{Binding TrophiesByPositionResult}">
+            <DataGrid ItemsSource="{Binding TrophiesByPositionResult}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Position" Binding="{Binding Key}"/>
+                    <DataGridTextColumn Header="Trophies" Binding="{Binding Value}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid ItemsSource="{Binding PlayerData}" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Position" Binding="{Binding Key}"/>
                     <DataGridTextColumn Header="Trophies" Binding="{Binding Value}"/>

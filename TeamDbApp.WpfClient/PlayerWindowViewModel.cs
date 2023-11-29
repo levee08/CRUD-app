@@ -38,6 +38,20 @@ namespace TeamDbApp.WpfClient
                 }
             }
         }
+        private IEnumerable<KeyValuePair<string, int>> playerData;
+
+        public IEnumerable<KeyValuePair<string, int>> PlayerData
+        {
+            get { return playerData; }
+            set
+            {
+                if (value != playerData)
+                {
+                    playerData = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public Player SelectedPlayer
         {
             get { return selectedPlayer; }
@@ -62,12 +76,13 @@ namespace TeamDbApp.WpfClient
                 (CreatePlayerCommand as RelayCommand).NotifyCanExecuteChanged();
                 (UpdatePlayerCommand as RelayCommand).NotifyCanExecuteChanged();
                 (TrophiesByPosition as RelayCommand).NotifyCanExecuteChanged();
+                (PlayerTrophiesandPosition as RelayCommand).NotifyCanExecuteChanged();
             }
         }
         public ICommand CreatePlayerCommand { get; set; }
         public ICommand UpdatePlayerCommand { get; set; }
         public ICommand DeletePlayerCommand { get; set; }
-
+        public ICommand PlayerTrophiesandPosition { get; set; }
         public ICommand TrophiesByPosition { get; set; }
         public static bool IsInDesignMode
         {
@@ -113,6 +128,10 @@ namespace TeamDbApp.WpfClient
                 TrophiesByPosition = new RelayCommand(async () =>
                 {
                     TrophiesByPositionResult = Players.GetNonCrudData("http://localhost:29829/PlayerNonCrud/ThrophiesByPosition");        
+                });
+                PlayerTrophiesandPosition = new RelayCommand(async () =>
+                {
+                    PlayerData = Players.GetNonCrudDataTwo("http://localhost:29829/PlayerNonCrud/PlayerTrophiesAndPosition/", selectedPlayer.PlayerName);
                 });
 
 
