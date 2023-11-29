@@ -33,6 +33,35 @@ namespace TeamDbApp.WpfClient
                 }
             }
         }
+        private IEnumerable<KeyValuePair<string, int>> playerCountResult;
+
+        public IEnumerable<KeyValuePair<string, int>> PlayerCountResult
+        {
+            get { return playerCountResult; }
+            set
+            {
+                if (value != playerCountResult)
+                {
+                    playerCountResult = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private IEnumerable<KeyValuePair<string, int>> oldManagersTeamname;
+
+        public IEnumerable<KeyValuePair<string, int>> OldManagersTeamname
+        {
+            get { return oldManagersTeamname; }
+            set
+            {
+                if (value != oldManagersTeamname)
+                {
+                    oldManagersTeamname = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public FootballTeam SelectedTeam
         {
             get { return selectedTeam; }
@@ -56,6 +85,8 @@ namespace TeamDbApp.WpfClient
                 (CreateTeamCommand as RelayCommand).NotifyCanExecuteChanged();
                 (UpdateTeamCommand as RelayCommand).NotifyCanExecuteChanged();
                 (BoldManagersCommand as RelayCommand).NotifyCanExecuteChanged();
+                (PlayerCountCommand as RelayCommand).NotifyCanExecuteChanged();
+                (OldManagersCommand as RelayCommand).NotifyCanExecuteChanged();
             }
         }
         public static bool IsInDesignMode
@@ -74,6 +105,8 @@ namespace TeamDbApp.WpfClient
         public ICommand UpdateTeamCommand { get; set; }
         public ICommand DeleteTeamCommand { get; set; }
         public ICommand BoldManagersCommand { get; set; }
+        public ICommand PlayerCountCommand { get; set; }
+        public ICommand OldManagersCommand { get; set; }
 
         public MainWindowViewModel()
         {
@@ -111,6 +144,14 @@ namespace TeamDbApp.WpfClient
                 BoldManagersCommand = new RelayCommand(() =>
                 {
                     BoldManagers = FootballTeams.BoldManagersNonCrud("http://localhost:29829/noncrud/BoldManagersTeamName");
+                });
+                PlayerCountCommand = new RelayCommand(() =>
+                {
+                    PlayerCountResult= FootballTeams.TeamPlayersCount("http://localhost:29829/noncrud/TeamPlayersCount");
+                });
+                OldManagersCommand = new RelayCommand(() =>
+                {
+                    OldManagersTeamname = FootballTeams.OldManagersNonCrud("http://localhost:29829/noncrud/OldManagersTeamName");
                 });
 
             }

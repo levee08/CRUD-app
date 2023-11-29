@@ -447,7 +447,7 @@ namespace MovieDbApp.WpfClient
                 return new RestCollection<KeyValuePair<string, int>>("http://localhost:29829/", "PlayerNonCrud/ThrophiesByPosition", "hub");
             }
         }
-        public RestCollection<KeyValuePair<string, int>> GetNonCrudDataTwo(string endpoint,string name)
+        public RestCollection<KeyValuePair<string, int>> GetNonCrudDataTwo(string endpoint,string name) ///PlayerNonCrud/PlayerTrophiesAndPosition/{name}
         {
             try
             {
@@ -501,15 +501,70 @@ namespace MovieDbApp.WpfClient
                 return new RestCollection<FootballTeam>("http://localhost:29829/", "noncrud/BoldManagersTeamName", "hub");
             }
         }
+        public RestCollection<KeyValuePair<string, int>> TeamPlayersCount(string endpoint) //​/noncrud​/TeamPlayersCount
+        {
+            try
+            {
+                HttpResponseMessage response = rest.client.GetAsync(endpoint).GetAwaiter().GetResult();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    HttpContent content = response.Content;
+                    Task<string> result = content.ReadAsStringAsync();
+                    string contentString = result.GetAwaiter().GetResult();
+
+                    List<KeyValuePair<string, int>> items = JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(contentString);
+
+                    return new RestCollection<KeyValuePair<string, int>>("http://localhost:29829/", "noncrud​/TeamPlayersCount", "hub") { items = items };
+                }
+                else
+                {
+                    throw new HttpRequestException($"HTTP Error: {response.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return new RestCollection<KeyValuePair<string, int>>("http://localhost:29829/", "noncrud​/TeamPlayersCount", "hub");
+            }
+        }
+        public RestCollection<KeyValuePair<string, int>> OldManagersNonCrud(string endpoint) ///noncrud/OldManagersTeamName
+        {
+            try
+            {
+                HttpResponseMessage response = rest.client.GetAsync(endpoint).GetAwaiter().GetResult();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    HttpContent content = response.Content;
+                    Task<string> result = content.ReadAsStringAsync();
+                    string contentString = result.GetAwaiter().GetResult();
+
+                    List<KeyValuePair<string, int>> items = JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(contentString);
+
+                    return new RestCollection<KeyValuePair<string, int>>("http://localhost:29829/", "noncrud/OldManagersTeamName", "hub") { items = items };
+                }
+                else
+                {
+                    throw new HttpRequestException($"HTTP Error: {response.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return new RestCollection<KeyValuePair<string, int>>("http://localhost:29829/", "noncrud/OldManagersTeamName", "hub");
+            }
+        }
 
 
-        ///PlayerNonCrud/PlayerTrophiesAndPosition/{name}
 
 
 
-        //​/noncrud​/TeamPlayersCount
 
-        ///noncrud/OldManagersTeamName
+
+
+
+        
 
 
 
