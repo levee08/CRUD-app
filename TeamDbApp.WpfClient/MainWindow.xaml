@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamDbApp.WpfClient"
         mc:Ignorable="d"
-        Title="Team Editor" Height="450" Width="800">
+        Title="Team Editor" Height="800" Width="800">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
@@ -14,25 +14,56 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding FootballTeams}" SelectedItem="{Binding SelectedTeam}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding FootballTeamName}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <StackPanel Grid.Column="1" >
-            <Label Content="Name" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedTeam.FootballTeamName}" Padding="10" Margin="0,0,0,10"/>
-            <Label Content="Throphies won" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedTeam.TrophiesWon}" Padding="10" Margin="0,0,0,10"/>
-            <Label Content="Placement" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedTeam.CurrentPlacement}" Padding="10" Margin="0,0,0,30"/>
-            <Button Content="Create Team" Command="{Binding CreateTeamCommand}" Padding="10" Margin="10"/>
-            <Button Content="Update Team" Command="{Binding UpdateTeamCommand}" Padding="10" Margin="10"/>
-            <Button Content="Delete Team" Command="{Binding DeleteTeamCommand}" Padding="10" Margin="10"/>
-            
-        </StackPanel>
+
+        <!-- ScrollViewer hozzáadása a bal oldali ListBox-hoz -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ListBox ItemsSource="{Binding FootballTeams}" SelectedItem="{Binding SelectedTeam}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding FootballTeamName}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
+
+        <!-- StackPanel helyett ScrollViewer használata a jobb oldali elemekhez -->
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <StackPanel>
+                <Label Content="Name" Background="LightBlue" Padding="10"/>
+                <TextBox Text="{Binding SelectedTeam.FootballTeamName}" Padding="10" Margin="0,0,0,10"/>
+                <Label Content="Throphies won" Background="LightBlue" Padding="10"/>
+                <TextBox Text="{Binding SelectedTeam.TrophiesWon}" Padding="10" Margin="0,0,0,10"/>
+                <Label Content="Placement" Background="LightBlue" Padding="10"/>
+                <TextBox Text="{Binding SelectedTeam.CurrentPlacement}" Padding="10" Margin="0,0,0,30"/>
+                <Label Content="Managername" Background="LightBlue" Padding="10"/>
+                <TextBox Text="{Binding SelectedTeam.Manager.ManagerName}" Padding="10" Margin="0,0,0,30"/>
+                <Button Content="Create Team" Command="{Binding CreateTeamCommand}" Padding="10" Margin="10"/>
+                <Button Content="Update Team" Command="{Binding UpdateTeamCommand}" Padding="10" Margin="10"/>
+                <Button Content="Delete Team" Command="{Binding DeleteTeamCommand}" Padding="10" Margin="10"/>
+                <Button Content="Bold Managers" Command="{Binding BoldManagersCommand}" Padding="10" Margin="10"/>
+                <Button Content="Player Count" Command="{Binding PlayerCountCommand}" Padding="10" Margin="10"/>
+                <Button Content="Old Managers" Command="{Binding OldManagersCommand}" Padding="10" Margin="10"/>
+
+                <DataGrid ItemsSource="{Binding BoldManagers}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding FootballTeamName}"/>
+                        <DataGridTextColumn Header="Trophies" Binding="{Binding TrophiesWon}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid ItemsSource="{Binding PlayerCountResult}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Key}"/>
+                        <DataGridTextColumn Header="Count" Binding="{Binding Value}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid ItemsSource="{Binding OldManagersTeamname}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Key}"/>
+                        <DataGridTextColumn Header="Age" Binding="{Binding Value}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </ScrollViewer>
 
     </Grid>
 </Window>

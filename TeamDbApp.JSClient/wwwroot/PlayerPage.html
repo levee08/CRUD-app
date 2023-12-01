@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>Player Table</h2>
+    <div id="playerformdiv">
+        <label>Player Name</label>
+        <input type="text" id="playername" />
+        <label>Player Position</label>
+        <input type="text" id="playerposition" />
+        <button type="button" onclick="playercreate()">Add Player</button>
+        <button type="button" onclick="getTrophiesByPosition()">Trophies by Position</button>`
+    </div>
+    <div id="playerupdateformdiv">
+        <label>Player Name</label>
+        <input type="text" id="playernametoupdate" />
+        <label>Player Position</label>
+        <input type="text" id="playerpositiontoupdate" />
+        <button type="button" onclick="playerupdate()">Update Player</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="playerresultarea">
+        </tbody>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody id="trophiesresultarea"></tbody>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Trophies Count</th>
+            </tr>
+        </thead>
+        <tbody id="statresultarea"></tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="Playerscript.js"></script>
+</body>
+<head>
+    <meta charset="utf-8" />
+    <title>Player</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+</html>

@@ -33,6 +33,7 @@
             <Button Content="Create Manager" Command="{Binding CreateManagerCommand}" Padding="10" Margin="10"/>
             <Button Content="Update Manager" Command="{Binding UpdateManagerCommand}" Padding="10" Margin="10"/>
             <Button Content="Delete Manager" Command="{Binding DeleteManagerCommand}" Padding="10" Margin="10"/>
+            
 
         </StackPanel>
 

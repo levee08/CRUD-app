@@ -3,10 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <title>Nem tudom</title>
-    <link rel="stylesheet" href="style.css"/> 
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <h1>Team Catalog</h1>
+    <div>
+        <button type="button" onclick="JumpToManager()">Manager Table Jump</button>
+    </div>
+    <div>
+        <button type="button" onclick="JumpToPlayer()">Player Table Jump</button>
+    </div>
     <div id="formdiv">
         <label>Team Name</label>
         <input type="text" id="teamname" />
@@ -15,7 +21,11 @@
         <label>Team Throphies count</label>
         <input type="text" id="teamtrophies" />
         <button type="button" onclick="create()">Add Team</button>
+        <button type="button" onclick="getBoldManagersTeamNameData()">Bold</button>
+        <button type="button" onclick="getPlayersCount()">Count</button>`
+        <button type="button" onclick="getOldManagers()">Old</button>`
     </div>
+
     <div id="updateformdiv">
         <label>Team Name</label>
         <input type="text" id="teamnametoupdate" />
@@ -38,70 +48,37 @@
         </thead>
         <tbody id="resultarea">
         </tbody>
-
     </table>
-
-    <h2>Manager Table</h2>
-    <div id="managerformdiv">
-        <label>Manager Name</label>
-        <input type="text" id="managername" />
-        <label>Manager Age</label>
-        <input type="text" id="managerage" />
-        <label>Is bold?</label>
-        <input type="checkbox" id="isbold" />
-        <button type="button" onclick="managercreate()">Add Manager</button>
-    </div>
-    <div id="managerupdateformdiv">
-        <label>Manager Name</label>
-        <input type="text" id="managernametoupdate" />
-        <label>Manager Age</label>
-        <input type="text" id="manageragetoupdate" />
-        <label>Is bold?</label>
-        <input type="checkbox" id="isboldtoupdate" />
-        <button type="button" onclick="managerupdate()">Update Manager</button>
-    </div>
     <table>
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody id="boldresultarea"></tbody>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody id="countresultarea"></tbody>
+    </table>
+    <table>
+        <thead>
+            <tr>
                 <th>Name</th>
                 <th>Age</th>
-                <th>Bold</th>
-                <th>Actions</th>
             </tr>
         </thead>
-        <tbody id="managerresultarea">
-        </tbody>
-    </table>
-
-    <h2>Player Table</h2>
-    <div id="playerformdiv">
-        <label>Player Name</label>
-        <input type="text" id="playername" />
-        <label>Player Position</label>
-        <input type="text" id="playerposition" />
-        <button type="button" onclick="playercreate()">Add Player</button>
-    </div>
-    <div id="playerupdateformdiv">
-        <label>Player Name</label>
-        <input type="text" id="playernametoupdate" />
-        <label>Player Position</label>
-        <input type="text" id="playerpositiontoupdate" />
-        <button type="button" onclick="playerupdate()">Update Player</button>
-    </div>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Position</th>
-            </tr>
-        </thead>
-        <tbody id="playerresultarea">
-        </tbody>
+        <tbody id="oldresultarea"></tbody>
     </table>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -18,6 +18,12 @@ th{
 #updateformdiv {
     display: none;
 }
+#managerupdateformdiv {
+    display: none;
+}
+#playerupdateformdiv {
+    display: none;
+}
 #formdiv {
     display: flex;
     flex-direction: column;
