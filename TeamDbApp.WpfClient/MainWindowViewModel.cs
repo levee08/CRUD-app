@@ -123,10 +123,11 @@ namespace TeamDbApp.WpfClient
                         FootballTeamName = selectedTeam.FootballTeamName,
                         CurrentPlacement = selectedTeam.CurrentPlacement,
                         TrophiesWon=selectedTeam.TrophiesWon,
-                        Manager =selectedTeam.Manager
+                        Manager =selectedTeam.Manager,
+
                        
 
-                    }, "http://localhost:29829/Manager");
+                    }, "http://localhost:29829/FootballTeam");
                 });
                 UpdateTeamCommand = new RelayCommand(()=>
                 {
